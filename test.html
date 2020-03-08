@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>한국과학영재학교 학생웹서비스</title>
+<!-- 
+<link rel="stylesheet" href="/scmanager/stuweb/common/css/css.css" type="text/css">
+ -->
+<script src="/scmanager/stuweb/common/js/jquery-1.9.0.min.js"></script>
+<!--[if IE]>
+<script type="text/javascript" src="/scmanager/stuweb/common/js/html5shiv.js"></script>
+<script type="text/javascript" src="/scmanager/stuweb/common/js/IE9.js"></script>
+<script type="text/javascript" src="/scmanager/stuweb/common/js/placeholders.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scmanager/stuweb/common/style/style.css" type="text/css">
+<style type="text/css">
+.header{padding:0;background:none;}
+</style>
+</head>
+
+<!-- 팝업 관리 -->
+
+
+
+
+
+<script language="javascript">
+<!--
+function setCookie( name, value, expiredays )  {
+	
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function getCookie( name ) {
+
+	var nameOfCookie = name + "=";
+	var x = 0;
+
+	while ( x <= document.cookie.length ) {
+		
+		var y = (x+nameOfCookie.length);
+		
+		if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+			
+			if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+			endOfCookie = document.cookie.length;
+			return unescape( document.cookie.substring( y, endOfCookie ) );
+	}
+		x = document.cookie.indexOf( " ", x ) + 1;
+		
+		if ( x == 0 )
+		
+		break;
+	}
+	
+	return "";
+}
+
+var popup_seq		= "";
+var popup_width		= "0";
+var popup_height	= "0";
+var popup_scroll	= "";
+
+var cookie_nm 	= "stuweb";
+var go_url 		= '/' + "scmanager/stuweb" + '/popup/popup.jsp?cookie_nm='+cookie_nm;
+
+if ( popup_seq != "" ) {
+
+	if ( getCookie( cookie_nm ) != "done" ) {
+		window.open(go_url,'notice1','toolbar=no,location=no,directories=no,status=no,menubar=no, scrollbars=' + popup_scroll + ',resizable=no,width=' + popup_width + ',height=' + popup_height + ',left=5, top=5');
+	}
+}
+
+
+var notice_cookie_nm		= cookie_nm + "notice_";
+
+var notice_popup_seq 		= "";	
+var board_cd 				= "20006";	
+var notice_popup_board_cd 	= "";	
+
+var go_url 		= '/homepage/school/popup/notice.jsp?notice_cookie_nm='+notice_cookie_nm+'&board_cd='+board_cd;
+
+if ( notice_popup_seq != "" && notice_popup_board_cd.indexOf(board_cd) >= 0 ) {
+
+	//공지 팝업
+	if ( getCookie( notice_cookie_nm ) != "done" ) {
+		window.open(go_url,'news','toolbar=no,location=no,directories=no,status=no,menubar=no, scrollbars=yes,resizable=yes,width=650,height=800,left=1,left=500');
+	}
+}
+
+-->
+</script>
+
+<!-- 팝업 관리 -->
+
+<body topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<table cellpadding="0" cellspacing="0" width="100%" height="100%">
+<!-- top -->
+
+
+
+<tr height="157px">
+	<td valign="top">
+		<div class="header">
+			<div class="top">
+				<h1><a href="/scmanager/stuweb/main.jsp"><img src="/scmanager/stuweb/images/default/logo.png"></a></h1>
+				<div class="util_menu">
+					<ul>
+						<li><a href="http://www.ksa.hs.kr" target="_blank">학교홈</a></li>
+						<li><a href="https://ksa.hs.kr/Counsel" target="_blank">상담센터</a></li>
+						<!-- <li><a href="http://create.ksa.hs.kr" target="_blank">창조관 예약</a></li> -->
+						<li><a href="https://gaonnuri.ksain.net" target="_blank">KSA학생회</a></li>
+					</ul>
+				</div>
+				<div class="user">
+					<b>18-206 Hieu Minh Nguyen(재학)</b>학우님 반갑습니다.
+					<a href="/scmanager/stuweb/logout.jsp">Log out</a>
+					<a href="/scmanager/stuweb/eng/main.jsp">ENGLISH</a>
+				</div>
+			</div>
+
+			<!-- gnb -->
+			<div class="gnb_area" id="gnb_area">
+				<ul>
+					<li class="hakjuk"><a href="/scmanager/stuweb/kor/hakjuk/hakjuk.jsp" class="gnb"><em>학적정보</em></a>
+						<div class="sub">
+							<ul>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/hakjuk.jsp">학적정보</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/selfResearch.jsp">창의연구정보</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/etcResearch.jsp">기타연구활동</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/thesis.jsp">연구실적</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/susang.jsp">수상내역</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/janghak.jsp">장학금현황</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/authen.jsp">자격증/인증</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/forignskill.jsp">외국어능력</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/enlighten.jsp">자기계발활동</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/group.jsp">협업활동</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/world.jsp">세계시민활동</a></li>
+<!--
+								<li><a href="/scmanager/stuweb/kor/hakjuk/bookclub.jsp">독서마일리지</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/perSpecial.jsp">봉사특별활동</a></li>
+								<li><a href="/scmanager/stuweb/kor/hakjuk/groupSpecial.jsp">단체특별활동</a></li>
+-->
+							</ul>
+						</div>
+					</li>
+					<li class="health"><a href="/scmanager/stuweb/kor/health/health.jsp" class="gnb"><em>건강기록부</em></a></li>
+					<li class="sukang"><a href="/scmanager/stuweb/kor/sukang/state.jsp" class="gnb"><em>수강정보</em></a>
+						<div class="sub">
+							<ul>
+								<li><a href="/scmanager/stuweb/kor/sukang/spare.jsp">수강 신청</a></li>
+								<li><a href="/scmanager/stuweb/kor/sukang/apply.jsp">수강 신청 확정</a></li>
+								<li><a href="/scmanager/stuweb/kor/sukang/state.jsp">수강 신청 현황</a></li>
+								<li><a href="/scmanager/stuweb/kor/sukang/value.jsp">강의 평가</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="record"><a href="/scmanager/stuweb/kor/record/during.jsp" class="gnb"><em>성적정보</em></a>
+						<div class="sub">
+							<ul>
+<!-- 
+								<li><a href="/scmanager/stuweb/kor/record/during.jsp">현학기 성적조회</a></li>
+ -->
+								<li><a href="/scmanager/stuweb/kor/record/total.jsp">전체 성적조회</a></li>
+								<li><a href="/scmanager/stuweb/kor/record/graduation.jsp">졸업 사정성적</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="life"><a href="/scmanager/stuweb/kor/life/rewardSearch.jsp" class="gnb"><em>생활관리</em></a>
+						<div class="sub">
+							<ul>
+								<li><a href="/scmanager/stuweb/kor/life/rewardSearch_total.jsp">합산 생활 상/벌점 내역 조회</a></li>
+								<li><a href="/scmanager/stuweb/kor/life/rewardSearch.jsp">생활 상/벌점 내역 조회</a></li>
+								<li><a href="/scmanager/stuweb/kor/life/rewardSearch1.jsp">생활관 상/벌점 내역 조회</a></li>
+								<li><a href="/scmanager/stuweb/kor/life/outInput.jsp">외출/외박 신청</a></li>
+								<li><a href="/scmanager/stuweb/kor/life/outSearchResult.jsp">외출/외박신청 결과</a></li>
+								<li><a href="/scmanager/stuweb/kor/life/qna/qnaList.jsp">생활 Q&A</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="certificate"><a href="/scmanager/stuweb/kor/certificate/certificate.jsp" class="gnb"><em>증명서신청</em></a>
+						<div class="sub">
+							<ul>
+								<li><a href="/scmanager/stuweb/kor/certificate/certificate.jsp">증명서신청</a></li>
+								<li><a href="/scmanager/stuweb/kor/certificate/certificateResult.jsp">증명서신청결과</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="poll"><a href="/scmanager/stuweb/kor/poll/list.jsp" class="gnb"><em>학생설문</em></a></li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+			$("#gnb_area .gnb").hover(function(){
+				$("#gnb_area .gnb").parent().removeClass('on');
+				$(this).parent().addClass('on');
+			},function(){
+				$("#gnb_area .gnb").parent().removeClass('on');
+			});
+			$("#gnb_area .sub").hover(function(){
+				$("#gnb_area .sub").parent().removeClass('on');
+				$(this).parent().addClass('on');
+			},function(){
+				$("#gnb_area .sub").parent().removeClass('on');
+			});
+			</script>
+			<!-- //gnb -->
+		</div>
+	</td>
+</tr>
+<!-- top -->
+<tr valign="top">
+	<td>
+		<!-- 비쥬얼 -->
+		<table cellpadding="0" cellspacing="0" width="100%" style="margin:-12px 0 0;">
+		<tr>
+			<td align="center" bgcolor="#191d19"><img src="/scmanager/stuweb/images/main/visual.jpg" alt=""/></td>
+		</tr>
+		<tr height="10">
+			<td></td>
+		</tr>
+		</table>
+		<!-- 비쥬얼 -->
+		
+		<!-- 큅메뉴 & 퀵서비스
+		<table cellpadding="0" cellspacing="0" width="100%">
+		<tr height="110" bgcolor="#F1FAFF">
+			<td>
+				<table cellpadding="0" cellspacing="0" width="980">
+				<tr>
+					<td>
+						<script language="javascript">
+					        var vNameOfSwf  = "/scmanager/stuweb/flash/quickMenu.swf";
+					        var vSizeOfSwf  = "width=565 height=110";
+					        //window OR opaque
+					        var vWmodeOfSwf = "transparent";
+					    </script>
+					    <script src="/common/js/swf.js"></script>
+					</td>
+					<td>
+						<script language="javascript">
+					        var vNameOfSwf  = "/scmanager/stuweb/flash/quickService.swf";
+					        var vSizeOfSwf  = "width=415 height=110";
+					        //window OR opaque
+					        var vWmodeOfSwf = "transparent";
+					    </script>
+					    <script src="/common/js/swf.js"></script>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr height="20">
+			<td></td>
+		</tr>
+		</table>
+		큅메뉴 & 퀵서비스  -->
+		
+		<!-- 최근 게시물 -->
+		<table cellpadding="0" cellspacing="0" width="100%" >
+		<tr valign="top">
+			<td style="padding:30px 0 60px;">
+				<table cellpadding="0" cellspacing="0" width="980" class="contents_wrap">
+						<!-- 학사 공지 -->
+<!-- 
+						<table cellpadding="0" cellspacing="0" width="370">
+						<tr>
+							<td><img src="/scmanager/images/stuweb/tNotice.gif"></td>
+							<td align="right" style="padding-right:5;">
+								<table cellpadding="0" cellspacing="0">
+								<tr>
+									<td><a href="/scmanager/stuweb/board/noticeList.jsp" onfocus="this.blur()"><img src="/scmanager/images/stuweb/btn/more.gif"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="topLine1"></td>
+						</tr>
+						</table>
+						
+						<table cellpadding="0" cellspacing="0" width="370">
+						<tr>
+							<td width="290"></td>
+							<td width="80"></td>
+						</tr>
+						
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/noticeView.jsp?seq=3024" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">2월 상담 프로그램 안내 </a></td>
+									<td align="center" class="eng">2012-02-13</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+									
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/noticeView.jsp?seq=3023" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">2011년 하반기 상담소식지 발행 </a></td>
+									<td align="center" class="eng">2012-01-06</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+									
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/noticeView.jsp?seq=3022" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">◎2011학년도 축구부 특별활동 강사... </a></td>
+									<td align="center" class="eng">2012-01-02</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+									
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/noticeView.jsp?seq=3020" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">2011학년도 2학기 성적 확인 및 정... </a></td>
+									<td align="center" class="eng">2011-12-27</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+									
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/noticeView.jsp?seq=3015" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">2012학년도 신입생 스쿨뱅킹 출금동... </a></td>
+									<td align="center" class="eng">2011-12-22</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+									
+																			
+						
+						</table>
+ -->
+						<!-- 학사 공지 -->
+							
+							
+							
+
+						<!-- 버튼 -->
+				<tr>
+<!-- //가우스
+					<td width="195px" align="center"><a href="/common/include/gauce.zip"><img src="/scmanager/stuweb/images/main/download_file.jpg" alt="file"></a></td>
+					<td width="1px" align="center"><img src="/scmanager/stuweb/images/main/download_line.jpg" alt=""/></td>
+ -->
+					<td width="195px" align="center"><a href="javascript:;"onclick="window.open('http://sas.ksa.hs.kr/softdown/swdown.jsp','','width=700,height=750');"><img src="/scmanager/stuweb/images/main/download_program.jpg" alt="file"></a></td>
+					<td width="30"></td>
+					<td width="600px" valign="top">
+						<b style="color:#000;font-size:20px;">
+							<img src="/scmanager/stuweb/images/mark_bullet/exclamation.png" alt="" style="vertical-align:bottom;"/> 학사시스템 최초 사용시 <span style="color:#bf9b49">유의사항</span>
+						</b><br><br>
+						<ol style="font-size:13px;color:#646464;line-height:18px;padding:0 0 0 30px;">
+							<li>
+								1. 학생의 비밀번호는 학적정보->학적정보에서 변경이 가능합니다. <br>
+								&nbsp;&nbsp;&nbsp;&nbsp;변경할 비밀번호를 비밀번호와 비밀번호 확인란에 입력한 후에 저장버튼을 누르면 됩니다.
+							</li>
+							<li>
+								2. 시스템문의<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;- 교무지원부 교육정보센터 김창호 051-606-2348(창조관 2F 전산실)
+							</li>
+						</ol>
+					</td>
+						<!-- 가우스 안내문구 -->
+
+						<!-- 학사 자료실
+						<table cellpadding="0" cellspacing="0" width="470">
+						<tr>
+							<td><img src="/scmanager/images/stuweb/tPds.gif"></td>
+							<td align="right" style="padding-right:5;">
+								<table cellpadding="0" cellspacing="0">
+								<tr>
+									<td><a href="/scmanager/stuweb/board/pdsList.jsp" onfocus="this.blur()"><img src="/scmanager/images/stuweb/btn/more.gif"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="topLine1"></td>
+						</tr>
+						</table>
+						
+						<table cellpadding="0" cellspacing="0" width="470">
+						<tr>
+							<td width="390"></td>
+							<td width="80"></td>
+						</tr>
+						
+								
+						
+								<tr height="26">
+									<td class="news" style="padding-top:10;padding-left:4;"><a href="/scmanager/stuweb/board/pdsView.jsp?seq=1" onfocus="this.blur()"><img src="/scmanager/images/stuweb/point.gif" align="absmiddle">[상담센터 직업정보]컴퓨터 보안전... </a></td>
+									<td align="center" class="eng">[2008-05-06]</td>
+								</tr>
+								<tr height="1">
+									<td colspan="2" background="/scmanager/images/stuweb/dot.gif"></td>
+								</tr>
+								
+																	
+						
+						</table>
+						학사 자료실 -->
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<!-- footer -->
+
+
+
+<!--div class="footer">
+	<div class="wrap">
+		<h1><img src="/scmanager/stuweb/images/default/f_logo.png" alt="logo"/></h1>
+		<address>
+			614-822 부산광역시 부산진구 백양관문로 105-47 / 대표전화 051-897-0006 / 행정실 051-894-0006 / 입학관리부 051-606-2182<br/>
+			COPYRIGHT(C) 2007 KOREA SCIENCE ACADEMY. ALL RIGHTS RESERVED
+		</address>
+	</div>
+</div-->
+
+<tr height="10">
+	<td></td>
+</tr>
+<tr height="60">
+	<td>
+		<div class="footer">
+			<div class="wrap">
+				<h1><img src="/scmanager/stuweb/images/default/f_logo.png" alt="logo"/></h1>
+				<address>
+					614-822 부산광역시 부산진구 백양관문로 105-47 / 대표전화 051-897-0006 / 행정실 051-894-0006 / 입학관리부 051-606-2182<br/>
+					COPYRIGHT(C) 2007 KOREA SCIENCE ACADEMY. ALL RIGHTS RESERVED
+				</address>
+			</div>
+		</div>
+	</td>
+</tr>
+<!-- footer -->
+</table>
+</body>
+</html>
