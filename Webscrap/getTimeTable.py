@@ -1,9 +1,15 @@
+'''
+encoding: UTF-8
+title: getTimeTable
+project: Data Structures
+'''
+
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 import json
 
-#login credential
+#request headers
 headerlogin = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "Accept-Encoding": "gzip, deflate",
@@ -30,6 +36,7 @@ headerclass = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
 }
 
+#get login credential
 with open('C://Users//hieut//OneDrive//Desktop//login.json', 'r') as f:
     loginForm = json.load(f)
 
@@ -50,14 +57,18 @@ with requests.Session() as s:
 # extract the dataframe timetable from the page
 soup = BeautifulSoup(r.content, 'lxml')
 table = soup.find('table', {"width": "100%", "class": "board_view"})
-trList = table.findall('td')
+trList = table.find_all('tr')
 
 l = []
-for i, tr in enumerate(trList):
+for tr in trList:
     td = tr.find_all('td')
-    row = [td.text for i in range(td)]
+    row = [tr.text for tr in td]
     l.append(row)
 
+df = pd.DataFrame(l, columns = [1,2,3,4,5,6])
+
+# turn dataframe into excel file
+df.to_excel(r'.//test.xlsx')
 
 
     
