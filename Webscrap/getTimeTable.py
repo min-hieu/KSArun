@@ -62,6 +62,7 @@ def getTimeTableHTML():
         print("failed /n" + str(e))
         return None
 
+
 def convertDataFrame(htmlbin):
     # extract the dataframe timetable from the page
     soup = BeautifulSoup(htmlbin.content, 'lxml')
@@ -82,4 +83,3 @@ def convertDataFrame(htmlbin):
     # df.to_excel(r'.//test.xlsx')
 
 
-    
